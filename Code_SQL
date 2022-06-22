@@ -1,0 +1,19 @@
+        lookup = str(lookup)
+        one = str(one)
+        short = str(short)
+        vol = str(vol)
+        gt = str(gt)
+        ud = str(mean)
+        dbtime = str(current_time)
+        dbdate = str(today)
+        id = str(id)
+        dburl = str(yahoo_url)
+#       print (lookup, one, short, vol, gt, ud, dbtime, dbdate, id, dburl)
+        print ("Name:", lookup, "Num:", one, "Price:", short, "Vol:", vol, "GT:", gt, "UD:", ud, "Time:", dbtime, "Date:", dbdate, id, dburl)
+
+        if Databace == 1:
+                sql = "INSERT INTO Logs (Name, Number, Price, Vol, GT, UD, Time, Date, ID, URL) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                val = (lookup, one, short, vol, gt, ud, dbtime, dbdate, id, dburl)
+                mycursor.execute(sql, val)
+                mydb.commit()
+                print(mycursor.rowcount, "record inserted.")
